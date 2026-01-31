@@ -6,9 +6,7 @@ class Main {
 
     static void main(String[] args) {
         carregarDados();
-        println("Aqui irá método para mostrar menu");
-        listarCandidatos();
-        listarEmpresas();
+        exibirMenu();
     }
 
     static void carregarDados() {
@@ -118,6 +116,35 @@ class Main {
                         competencias: ["Java", "Angular"]
                 )
         ]
+    }
+
+    static void exibirMenu() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("\n===== Linketinder =====");
+        System.out.println("1 - Listar candidatos");
+        System.out.println("2 - Listar empresas");
+        System.out.println("0 - Sair");
+
+        System.out.print("Escolha uma opção: ");
+        String option = scanner.nextLine();
+
+        switch (option) {
+            case "1":
+                listarCandidatos();
+                break;
+            case "2":
+                listarEmpresas();
+                break;
+            case "0":
+                System.out.println("Encerrando o programa...");
+                scanner.close();
+                return;
+            default:
+                println("Opção inválida. Digite uma das opções válidas");
+        }
+
+        exibirMenu();
     }
 
     static void listarCandidatos() {
