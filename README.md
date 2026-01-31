@@ -1,4 +1,4 @@
-# 💘 LinkeTinder – Match de Competências (Console)
+# 💘 Linketinder – Match de Competências (Console)
 
 Projeto de uma aplicação **LinkeTinder**, desenvolvida em **Groovy puro**, que combina a ideia de **match do Tinder** com o conceito de **competências profissionais do LinkedIn**, simulando a relação entre **candidatos** e **empresas recrutadoras** via **terminal/console**.
 
