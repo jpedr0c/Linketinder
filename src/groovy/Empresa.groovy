@@ -8,7 +8,7 @@ class Empresa extends PessoaBase{
     void exibirInformacoes() {
         super.exibirInformacoes();
         println("CNPJ: $cnpj" +
-                "País: $pais");
+                "\nPaís: $pais");
         println("----------------");
     }
 }

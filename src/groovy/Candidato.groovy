@@ -8,7 +8,7 @@ class Candidato extends PessoaBase{
     void exibirInformacoes() {
         super.exibirInformacoes();
         println("CPF: $cpf" +
-                "Idade: $idade");
+                "\nIdade: $idade");
         println("----------------");
     }
 }

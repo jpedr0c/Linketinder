@@ -11,10 +11,10 @@ abstract class PessoaBase implements Pessoa {
     @Override
     void exibirInformacoes() {
         println("Nome: $nome" +
-                "Email: $email" +
-                "Estado: $estado" +
-                "CEP: $cep" +
-                "Descricão: $descricao" +
-                "Competências: ${competencias.join(", ")}");
+                "\nEmail: $email" +
+                "\nEstado: $estado" +
+                "\nCEP: $cep" +
+                "\nDescricão: $descricao" +
+                "\nCompetências: ${competencias.join(", ")}");
     }
 }
