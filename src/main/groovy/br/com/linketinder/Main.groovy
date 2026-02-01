@@ -3,6 +3,7 @@ package br.com.linketinder
 import br.com.linketinder.model.Candidato
 import br.com.linketinder.model.Empresa
 import br.com.linketinder.service.CandidatoService
+import br.com.linketinder.service.EmpresaService
 
 class Main {
     static List<Candidato> candidatos = [];
@@ -124,7 +125,8 @@ class Main {
 
     static void exibirMenu() {
         Scanner scanner = new Scanner(System.in);
-        CandidatoService service = new CandidatoService();
+        CandidatoService candidatoService = new CandidatoService();
+        EmpresaService empresaService = new EmpresaService();
 
         println """
         ╔════════════════════════════════════════════════════════════╗
@@ -143,10 +145,10 @@ class Main {
 
         switch (option) {
             case "1":
-                adicionarCandidato(scanner, service);
+                adicionarCandidato(scanner, candidatoService);
                 break;
             case "2":
-                listarEmpresas();
+                adicionarEmpresa(scanner, empresaService);
                 break;
             case "3":
                 listarCandidatos();
@@ -165,12 +167,12 @@ class Main {
         exibirMenu();
     }
 
-    static void adicionarCandidato(Scanner scanner, CandidatoService service) {
+    static void adicionarCandidato(Scanner scanner, CandidatoService candidatoService) {
         println "\n╔════════════════════════════════════════════════════════════╗"
         println "║            📝 CADASTRO DE NOVO CANDIDATO 📝               ║"
         println "╚════════════════════════════════════════════════════════════╝\n"
 
-        print "Nome completo: "
+        print "Nome: "
         String nome = scanner.nextLine()
 
         print "Email: "
@@ -207,10 +209,58 @@ class Main {
                 competencias: competencias
         )
 
-        if (service.adicionar(candidatos, candidato)) {
+        if (candidatoService.adicionar(candidatos, candidato)) {
             println "\n✅ Candidato adicionado com sucesso!"
         } else {
             println "\n❌ Erro ao adicionar candidato. Verifique os dados informados."
+        }
+    }
+
+    static void adicionarEmpresa(Scanner scanner, EmpresaService empresaService) {
+        println "\n╔════════════════════════════════════════════════════════════╗"
+        println "║              🏢 CADASTRO DE NOVA EMPRESA 🏢               ║"
+        println "╚════════════════════════════════════════════════════════════╝\n"
+
+        print "Nome da empresa: "
+        String nome = scanner.nextLine()
+
+        print "Email corporativo: "
+        String email = scanner.nextLine()
+
+        print "CNPJ (formato: 12.345.678/0001-90): "
+        String cnpj = scanner.nextLine()
+
+        print "País: "
+        String pais = scanner.nextLine()
+
+        print "Estado (UF): "
+        String estado = scanner.nextLine()
+
+        print "CEP (formato: 12345-678): "
+        String cep = scanner.nextLine()
+
+        print "Descrição da empresa: "
+        String descricao = scanner.nextLine()
+
+        print "Competências desejadas (separadas por vírgula): "
+        String competenciasStr = scanner.nextLine()
+        List<String> competencias = competenciasStr.split(",").collect { it.trim() }
+
+        def empresa = new Empresa(
+                nome: nome,
+                email: email,
+                cnpj: cnpj,
+                pais: pais,
+                estado: estado,
+                cep: cep,
+                descricao: descricao,
+                competencias: competencias
+        )
+
+        if (empresaService.adicionar(empresas, empresa)) {
+            println "\n✅ Empresa adicionada com sucesso!"
+        } else {
+            println "\n❌ Erro ao adicionar empresa. Verifique os dados informados."
         }
     }
 
