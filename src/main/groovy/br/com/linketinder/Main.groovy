@@ -2,6 +2,7 @@ package br.com.linketinder
 
 import br.com.linketinder.model.Candidato
 import br.com.linketinder.model.Empresa
+import br.com.linketinder.service.CandidatoService
 
 class Main {
     static List<Candidato> candidatos = [];
@@ -123,20 +124,34 @@ class Main {
 
     static void exibirMenu() {
         Scanner scanner = new Scanner(System.in);
+        CandidatoService service = new CandidatoService();
 
-        System.out.println("\n===== Linketinder =====");
-        System.out.println("1 - Listar candidatos");
-        System.out.println("2 - Listar empresas");
-        System.out.println("0 - Sair");
+        println """
+        ╔════════════════════════════════════════════════════════════╗
+        ║                       MENU PRINCIPAL                       ║
+        ╠════════════════════════════════════════════════════════════╣
+        ║  1 - 📝 Cadastrar Novo Candidato                           ║
+        ║  2 - 🏢 Cadastrar Nova Empresa                             ║
+        ║  3 - 👥 Listar Candidatos                                  ║
+        ║  4 - 🏭 Listar Empresas                                    ║
+        ║  5 - 🚪 Sair                                               ║
+        ╚════════════════════════════════════════════════════════════╝
+        """.stripIndent()
 
-        System.out.print("Escolha uma opção: ");
+        System.out.print("Digite a opção desejada: ");
         String option = scanner.nextLine();
 
         switch (option) {
             case "1":
-                listarCandidatos();
+                adicionarCandidato(scanner, service);
                 break;
             case "2":
+                listarEmpresas();
+                break;
+            case "3":
+                listarCandidatos();
+                break;
+            case "4":
                 listarEmpresas();
                 break;
             case "0":
@@ -150,12 +165,69 @@ class Main {
         exibirMenu();
     }
 
+    static void adicionarCandidato(Scanner scanner, CandidatoService service) {
+        println "\n╔════════════════════════════════════════════════════════════╗"
+        println "║            📝 CADASTRO DE NOVO CANDIDATO 📝               ║"
+        println "╚════════════════════════════════════════════════════════════╝\n"
+
+        print "Nome completo: "
+        String nome = scanner.nextLine()
+
+        print "Email: "
+        String email = scanner.nextLine()
+
+        print "CPF (formato: 123.456.789-00): "
+        String cpf = scanner.nextLine()
+
+        print "Idade: "
+        Integer idade = scanner.nextInt()
+        scanner.nextLine()
+
+        print "Estado (UF): "
+        String estado = scanner.nextLine()
+
+        print "CEP (formato: 12345-678): "
+        String cep = scanner.nextLine()
+
+        print "Descrição pessoal: "
+        String descricao = scanner.nextLine()
+
+        print "Competências (separadas por vírgula): "
+        String competenciasStr = scanner.nextLine()
+        List<String> competencias = competenciasStr.split(",").collect { it.trim() }
+
+        def candidato = new Candidato(
+                nome: nome,
+                email: email,
+                cpf: cpf,
+                idade: idade,
+                estado: estado,
+                cep: cep,
+                descricao: descricao,
+                competencias: competencias
+        )
+
+        if (service.adicionar(candidatos, candidato)) {
+            println "\n✅ Candidato adicionado com sucesso!"
+        } else {
+            println "\n❌ Erro ao adicionar candidato. Verifique os dados informados."
+        }
+    }
+
     static void listarCandidatos() {
+        if (candidatos.isEmpty()) {
+            println("Nenhum candidato cadastrado!");
+            return;
+        }
         println("======= Candidatos ========")
         candidatos.each {it.exibirInformacoes()}
     }
 
     static void listarEmpresas() {
+        if (empresas.isEmpty()) {
+            println("Nenhuma empresa cadastrada!");
+            return;
+        }
         println("======= Empresas ========")
         empresas.each {it.exibirInformacoes()}
     }
