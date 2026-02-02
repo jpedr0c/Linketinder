@@ -6,7 +6,7 @@ class CandidatoService {
 
     private List<Candidato> candidatos = []
 
-    boolean adicionar(List<Candidato> candidatos, Candidato candidato) {
+    boolean adicionar(Candidato candidato) {
         candidatos.add(candidato);
         return true;
     }

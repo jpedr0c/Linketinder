@@ -209,7 +209,7 @@ class Main {
                 competencias: competencias
         )
 
-        if (candidatoService.adicionar(candidatos, candidato)) {
+        if (candidatoService.adicionar(candidato)) {
             println "\n✅ Candidato adicionado com sucesso!"
         } else {
             println "\n❌ Erro ao adicionar candidato. Verifique os dados informados."
@@ -257,7 +257,7 @@ class Main {
                 competencias: competencias
         )
 
-        if (empresaService.adicionar(empresas, empresa)) {
+        if (empresaService.adicionar(empresa)) {
             println "\n✅ Empresa adicionada com sucesso!"
         } else {
             println "\n❌ Erro ao adicionar empresa. Verifique os dados informados."

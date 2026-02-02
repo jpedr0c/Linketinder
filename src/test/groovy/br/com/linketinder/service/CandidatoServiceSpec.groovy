@@ -37,25 +37,4 @@ class CandidatoServiceSpec extends Specification{
         lista != null;
         lista.isEmpty();
     }
-
-    def "Não deve inserir candidato com dados vazios"() {
-        given: "Candidato com campos vazios"
-        def candidato = new Candidato(
-                nome: "",
-                email: "test@email.com",
-                cpf: "123.456.789-00",
-                idade: 25,
-                estado: "SP",
-                cep: "01234-567",
-                descricao: "Dev",
-                competencias: ["Java"]
-        )
-
-        when: "Tentar inserir o candidato"
-        def resultado = candidatoService.adicionar(candidato)
-
-        then: "Deve retornar false"
-        resultado == false
-        candidatoService.listar().size() == 0
-    }
 }

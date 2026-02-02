@@ -6,7 +6,7 @@ class EmpresaService {
 
     private List<Empresa> empresas = [];
 
-    boolean adicionar(List<Empresa> empresas, Empresa empresa) {
+    boolean adicionar(Empresa empresa) {
         empresas.add(empresa);
         return true;
     }
