@@ -10,4 +10,8 @@ class CandidatoService {
         candidatos.add(candidato);
         return true;
     }
+
+    List<Candidato> listar() {
+        return new ArrayList<>(candidatos);
+    }
 }

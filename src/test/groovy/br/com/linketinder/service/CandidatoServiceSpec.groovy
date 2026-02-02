@@ -5,12 +5,12 @@ import spock.lang.Specification
 
 class CandidatoServiceSpec extends Specification{
 
-    CandidatoService service = new CandidatoService();
+    CandidatoService candidatoService = new CandidatoService();
     def "Deve cadastrar um novo candidato na lista"() {
         given: "Candidato válido";
         def candidato = new Candidato(
-                nome: "Amanda",
-                email: "amanda@mail.com",
+                nome: "Teste",
+                email: "teste@mail.com",
                 cpf: "995.823.525-00",
                 idade: 22,
                 estado: "RJ",
@@ -20,26 +20,26 @@ class CandidatoServiceSpec extends Specification{
         )
 
         when: "Inserir o candidato na lista";
-        def resultado = service.adicionarCandidato(candidato);
+        def resultado = candidatoService.adicionar(candidato);
 
         then: "Deve retornar true e adicionar o candidato a lista"
         resultado == true;
-        service.listarCandidatos().size() == 1
-        service.listarCandidatos()[0].nome == "Amanda"
-        service.listarCandidatos()[0].cpf == "995.823.525-00"
+        candidatoService.listar().size() == 1;
+        candidatoService.listar()[0].nome == "Teste";
+        candidatoService.listar()[0].cpf == "995.823.525-00";
     }
 
-    def "deve retornar lista vazia quando não há candidatos"() {
+    def "Deve retornar lista vazia quando não há candidatos"() {
         when: "listar candidatos sem nenhum cadastrado"
-        def lista = service.listarCandidatos()
+        def lista = candidatoService.listar();
 
-        then: "deve retornar lista vazia"
-        lista != null
-        lista.isEmpty()
+        then: "Deve retornar lista vazia"
+        lista != null;
+        lista.isEmpty();
     }
 
-    def "não deve inserir candidato com dados vazios"() {
-        given: "um candidato com campos vazios"
+    def "Não deve inserir candidato com dados vazios"() {
+        given: "Candidato com campos vazios"
         def candidato = new Candidato(
                 nome: "",
                 email: "test@email.com",
@@ -51,11 +51,11 @@ class CandidatoServiceSpec extends Specification{
                 competencias: ["Java"]
         )
 
-        when: "tentar inserir o candidato"
-        def resultado = service.adicionarCandidato(candidato)
+        when: "Tentar inserir o candidato"
+        def resultado = candidatoService.adicionar(candidato)
 
-        then: "deve retornar false"
+        then: "Deve retornar false"
         resultado == false
-        service.listarCandidatos().size() == 0
+        candidatoService.listar().size() == 0
     }
 }

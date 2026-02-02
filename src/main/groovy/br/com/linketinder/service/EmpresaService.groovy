@@ -10,4 +10,8 @@ class EmpresaService {
         empresas.add(empresa);
         return true;
     }
+
+    List<Empresa> listar() {
+        return new ArrayList<>(empresas);
+    }
 }
