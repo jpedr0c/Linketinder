@@ -1,0 +1,123 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  font-size: clamp(40%, 1% + 2vw, 62.5%);
+
+  --primary-blue: #3B82F6;
+  --primary-blue-hover: #2563EB;
+  --primary-blue-light: #EFF6FF;
+
+  --status-todo: #F59E0B;
+  --status-doing: #2b79f8;
+  --status-done: #10B981;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background: hsl(210 20% 98%);
+  min-height: 100vh;
+}
+
+a{
+  text-decoration: none;
+}
+
+.container{
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+.navbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e1e1e1;
+  padding: 1.6rem 4rem;
+}
+
+.navbar a.navTitle{
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: black;
+}
+
+.navbar a span{
+  color: hsl(15 90% 58%);
+}
+
+.navbar .navActions{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar .navActions a{
+  border: 1px solid #777777;
+  border-radius: 1rem;
+  padding: .6rem 1.4rem;
+  color: black;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.navbar .navActions a:hover{
+  background: hsl(15 90% 58%);
+  color: hsl(210 20% 98%);
+}
+
+section.hero{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 1.4rem;
+}
+
+section.hero h1{
+  font-size: 6rem;
+  font-weight: 800;
+}
+
+section.hero h1 span{
+  color: hsl(15 90% 58%);
+}
+
+section.hero p{
+  font-size: 1.8rem;
+  color: #656565;
+}
+
+section.hero .buttonsHero{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+section.hero .buttonsHero button{
+  background: hsl(210 20% 98%);
+  padding: 1rem 2rem;
+  border: 1px solid #e1e1e1;
+  border-radius: 1rem;
+}
+
+section.hero .buttonsHero button:hover{
+  background: hsl(15 90% 58%);
+  color: hsl(210 20% 98%);
+}
+
+footer{
+  font-size: 1.2rem;
+  background: #1f1f1f;
+  color: hsl(210 20% 98%);
+  padding: 1.8rem 1rem;
+  text-align: center;
+}
