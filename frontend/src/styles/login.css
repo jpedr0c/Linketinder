@@ -1,0 +1,117 @@
+section.formLogin {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+section.formLogin .cardForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background: hsl(210 20% 98%);
+    padding: 4rem;
+    box-shadow: 0 0 4px 1px rgba(0,0,0,0.3);
+    border-radius: 1rem;
+    width: 40rem;
+}
+
+section.formLogin .cardForm .titleForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+}
+
+section.formLogin .cardForm .titleForm h3{
+    font-size: 2.6rem;
+}
+
+section.formLogin .cardForm .titleForm h3 span{
+    color: var(--primary-color);
+}
+
+section.formLogin .cardForm .titleForm p{
+    font-size: 1.6rem;
+    color: #656565;
+}
+
+section.formLogin .toggleTypeUser{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #EDEFF2;
+    padding: .4rem;
+    border-radius: 1rem;
+    width: 100%;
+}
+
+section.formLogin .toggleTypeUser button{
+    border: none;
+    border-radius: .6rem;
+    padding: .6rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    width: 100%;
+}
+
+section.formLogin .toggleTypeUser button.active{
+    background: #F9FAFB;
+}
+
+section.formLogin .cardForm form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.8rem;
+    width: 100%;
+}
+
+section.formLogin .cardForm form .inputForm{
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    width: 100%;
+}
+
+section.formLogin .cardForm form .inputForm label{
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+section.formLogin .cardForm form .inputForm input{
+    border-radius: .8rem;
+    border: 1px solid #c2c2c2;
+    padding: .8rem;
+    font-size: 1.4rem;
+}
+
+section.formLogin .cardForm form button{
+    border: none;
+    border-radius: .8rem;
+    background: var(--primary-color);
+    color: hsl(210 20% 98%);
+    font-size: 1.6rem;
+    padding: .8rem 0;
+    width: 100%;
+    cursor: pointer;
+}
+
+section.formLogin .cardForm form button:hover{
+    filter: brightness(1.1);
+}
+
+section.formLogin .cardForm p{
+    font-size: 1.4rem;
+    color: #656565;
+}
+
+section.formLogin .cardForm p a{
+    color: var(--primary-color);
+}

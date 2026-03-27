@@ -1,0 +1,47 @@
+section.hero{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+section.hero h1{
+    font-size: 6rem;
+    font-weight: 800;
+}
+
+section.hero h1 span{
+    color: hsl(15 90% 58%);
+}
+
+section.hero p{
+    font-size: 1.8rem;
+    color: #656565;
+    max-width: 70%;
+    text-align: center;
+}
+
+section.hero .buttonsHero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 2.4rem;
+}
+
+section.hero .buttonsHero a{
+    background: hsl(210 20% 98%);
+    padding: 1rem 2rem;
+    border: 1px solid #e1e1e1;
+    border-radius: 1rem;
+    color: black;
+    font-size: 1.6rem;
+}
+
+section.hero .buttonsHero a:hover{
+    background: hsl(15 90% 58%);
+    color: hsl(210 20% 98%);
+}
