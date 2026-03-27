@@ -81,8 +81,8 @@ section.formLogin .cardForm form .inputForm{
 }
 
 section.formLogin .cardForm form .inputForm label{
-    font-size: 1.6rem;
-    font-weight: 500;
+    font-size: 1.5rem;
+    font-weight: 400;
 }
 
 section.formLogin .cardForm form .inputForm input{
@@ -97,7 +97,7 @@ section.formLogin .cardForm form button{
     border-radius: .8rem;
     background: var(--primary-color);
     color: hsl(210 20% 98%);
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     padding: .8rem 0;
     width: 100%;
     cursor: pointer;
