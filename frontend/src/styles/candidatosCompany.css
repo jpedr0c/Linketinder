@@ -1,0 +1,87 @@
+section.hero{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto;
+    padding: 4.5rem;
+}
+
+section.hero h3{
+    font-size: 3rem;
+}
+
+section.hero h3 span{
+    color: var(--primary-color);
+}
+
+section.hero p{
+    font-size: 1.8rem;
+    color: #656565;
+    margin-top: .8rem;
+}
+
+section.hero .cardsCandidates{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+    width: 100%;
+    margin-top: 4rem;
+}
+
+section.hero .cardsCandidates .cardCandidate{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #FEFEFE;
+    box-shadow: 0 2px 4px 2px rgba(0,0,0,0.15);
+    border: 1px solid #d9d8d8;
+    border-radius: 1rem;
+    width: 100%;
+    padding: 2rem 4rem;
+}
+
+section.hero .cardsCandidates .cardCandidate .info h5{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+section.hero .cardsCandidates .cardCandidate .info p{
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+section.hero .cardsCandidates .cardCandidate .tags{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+section.hero .cardsCandidates .cardCandidate .tags .tag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e5e5e7;
+    border-radius: 1rem;
+    padding: .4rem 1.6rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+section.hero .cardsCandidates .cardCandidate .tags .hearthMatch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    padding: 1.2rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+section.hero .cardsCandidates .cardCandidate .tags .hearthMatch:hover{
+    background: #fcd1d1;
+}
