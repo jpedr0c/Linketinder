@@ -1,0 +1,126 @@
+section.hero{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    margin: 0 auto;
+}
+
+section.hero h3{
+    font-size: 2.6rem;
+}
+
+section.hero h3 span{
+    color: var(--primary-color);
+}
+
+section.hero > p {
+    font-size: 1.4rem;
+    color: #656565;
+    margin-top: .8rem;
+}
+
+section.hero .cardsMatches{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+    width: 100%;
+    margin-top: 3rem;
+}
+
+section.hero .cardsMatches .cardMatch{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #FEFEFE;
+    box-shadow: 0 2px 4px 2px rgba(0,0,0,0.15);
+    border: 1px solid #d9d8d8;
+    border-radius: 1rem;
+    width: 100%;
+    padding: 3rem 3rem;
+}
+
+section.hero .cardsMatches .cardMatch .title h4{
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+section.hero .cardsMatches .cardMatch .title > p{
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #656565;
+    padding: .6rem 0;
+}
+
+section.hero .cardsMatches .cardMatch > p{
+    font-size: 1.4rem;
+    color: black;
+    padding: .6rem 0;
+}
+
+section.hero .cardsMatches .cardMatch > span{
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #656565;
+    padding: .4rem 0;
+}
+
+section.hero .cardsMatches .cardMatch .tags{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.2rem;
+}
+
+section.hero .cardsMatches .cardMatch .tags .tag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e5e5e7;
+    border-radius: 1rem;
+    padding: .4rem 1.6rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+section.hero .buttonsMatch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+section.hero .buttonsMatch button{
+    width: 7rem;
+    height: 7rem;
+    border-radius: 100rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    background: white;
+}
+
+section.hero .buttonsMatch button#dislike{
+    border: 2px solid red;
+    color: red;
+}
+
+section.hero .buttonsMatch button#dislike:hover{
+    border: 2px solid red;
+    background: red;
+    color: white;
+}
+
+section.hero .buttonsMatch button#like{
+    background: var(--primary-color);
+    border: none;
+    color: white;
+}
+
+section.hero .buttonsMatch button#like:hover{
+    filter: brightness(1.3);
+}

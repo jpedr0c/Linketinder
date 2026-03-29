@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles/global.css">
-    <link rel="stylesheet" href="../../styles/home.css">
+    <link rel="stylesheet" href="../../styles/explorarCandidate.css">
     <title>Linketinder</title>
 </head>
 <body>
@@ -15,8 +15,8 @@
 <nav class="navbarHome">
     <a class="navTitle" href="./homeCandidate.html">Linke<span>tinder</span></a>
     <div class="navActions">
-        <a class="active" href="./homeCandidate.html">Início</a>
-        <a href="./explorarCandidate.html">Explorar vagas</a>
+        <a href="./homeCandidate.html">Início</a>
+        <a class="active" href="./explorarCandidate.html">Explorar vagas</a>
         <a href="./matchesCandidate.html">Meus matches</a>
     </div>
     <div class="profile">
@@ -26,32 +26,34 @@
 </nav>
 
 <section class="hero">
-    <h3>Olá,<span> Nome da pessoa</span></h3>
-    <p>Explore vagas e encontre a oportunidade ideal.</p>
-    <div class="cards">
-        <div class="card">
-            <div class="boxIcon">
-
+    <h3>Explorar vagas</h3>
+    <p>Clique no botão da direita para curtir e no botão da esquerda para pular</p>
+    <div class="cardsMatches">
+        <div class="cardMatch">
+            <div class="title">
+                <h4>Desenvolvedor(a) Backend</h4>
+                <p>Empresa Confidencial</p>
             </div>
-            <h5>Explorar vagas</h5>
-            <p>Deslize para curtir ou pular vagas</p>
-        </div>
-        <div class="card">
-            <div class="boxIcon">
-
+            <p>Desenvolvimento de APIs REST com Java e Spring Boot</p>
+            <span>Belo Horizonte, MG</span>
+            <div class="tags">
+                <div class="tag">
+                    Java
+                </div>
+                <div class="tag">
+                    Spring
+                </div>
+                <div class="tag">
+                    Micronaut
+                </div>
             </div>
-            <h5>Meus matches</h5>
-            <p>Vagas que deram match com você</p>
-        </div>
-        <div class="card">
-            <div class="boxIcon">
-
-            </div>
-            <h5>Meu perfil</h5>
-            <p>Edite suas informações e competências</p>
         </div>
     </div>
-
+    <div class="buttonsMatch">
+        <button id="dislike">X</button>
+        <button id="like"><3</button>
+    </div>
+    <p>2 vaga(s) restante(s)</p>
 </section>
 
 <footer>
