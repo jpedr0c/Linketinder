@@ -128,6 +128,11 @@ a{
   color: black;
 }
 
+.navbarHome .profile a.active{
+  background: #fde6df;
+  color: var(--primary-color);
+}
+
 footer{
   font-size: 1.2rem;
   background: #1f1f1f;

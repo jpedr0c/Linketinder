@@ -1,0 +1,86 @@
+section.formLogin {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+section.formLogin .cardForm{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    background: hsl(210 20% 98%);
+    padding: 3rem;
+    box-shadow: 0 0 4px 1px rgba(0,0,0,0.12);
+    border-radius: 1rem;
+    width: 40%;
+}
+
+section.formLogin .cardForm .titleForm h3{
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+section.formLogin .cardForm form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.4rem;
+    width: 100%;
+}
+
+section.formLogin .cardForm form .w50{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+section.formLogin .cardForm form .inputForm{
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    width: 100%;
+}
+
+section.formLogin .cardForm form .inputForm > label{
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+section.formLogin .cardForm form .inputForm > input{
+    border-radius: .8rem;
+    border: 1px solid #c2c2c2;
+    padding: .8rem;
+    font-size: 1.4rem;
+    cursor: not-allowed;
+}
+
+section.formLogin .cardForm form .inputForm > textarea{
+    resize: none;
+    border-radius: .8rem;
+    border: 1px solid #c2c2c2;
+    padding: .8rem;
+    font-size: 1.4rem;
+    height: 15rem;
+    cursor: not-allowed;
+}
+
+section.formLogin .cardForm form > button{
+    border: none;
+    border-radius: .8rem;
+    background: var(--primary-color);
+    color: hsl(210 20% 98%);
+    font-size: 1.5rem;
+    padding: .8rem 0;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+section.formLogin .cardForm form button:hover{
+    filter: brightness(1.2);
+}

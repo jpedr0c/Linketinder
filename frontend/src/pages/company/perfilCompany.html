@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/global.css">
+    <link rel="stylesheet" href="../../styles/perfilCandidate.css">
+    <title>Linketinder</title>
+</head>
+<body>
+
+<nav class="navbarHome">
+    <a class="navTitle" href="homeCompany.html">Linke<span>tinder</span></a>
+    <div class="navActions">
+        <a href="homeCompany.html">Início</a>
+        <a href="vagasCompany.html">Minhas vagas</a>
+        <a href="candidatosCompany.html">Candidatos</a>
+        <a href="painelCompany.html">Painel</a>
+    </div>
+    <div class="profile">
+        <a class="active" href="perfilCompany.html">Perfil</a>
+        <a href="../../../index.html">Sair</a>
+    </div>
+</nav>
+
+<section class="formLogin">
+    <div class="cardForm">
+        <div class="titleForm">
+            <h3>Perfil da empresa</h3>
+        </div>
+        <form action="">
+            <div class="w50">
+                <div class="inputForm">
+                    <label for="name">Nome da empresa</label>
+                    <input
+                            type="text"
+                            id="name"
+                            placeholder="ZG Soluções"
+                            disabled
+                    />
+                </div>
+                <div class="inputForm">
+                    <label for="email">Email</label>
+                    <input
+                            type="text"
+                            id="email"
+                            placeholder="zgsolucoes@email.com"
+                            disabled
+                    />
+                </div>
+            </div>
+
+            <div class="w50">
+                <div class="inputForm">
+                    <label for="cnpj">CNPJ</label>
+                    <input
+                            type="number"
+                            id="cnpj"
+                            placeholder="11.111.111/0001-11"
+                            disabled
+                    />
+                </div>
+                <div class="inputForm">
+                    <label for="pais">País</label>
+                    <input
+                            type="text"
+                            id="pais"
+                            placeholder="Brasil"
+                            disabled
+                    />
+                </div>
+            </div>
+
+            <div class="w50">
+                <div class="inputForm">
+                    <label for="estado">Estado</label>
+                    <input
+                            type="text"
+                            id="estado"
+                            placeholder="RJ"
+                            disabled
+                    />
+                </div>
+                <div class="inputForm">
+                    <label for="cep">CEP</label>
+                    <input
+                            type="number"
+                            id="cep"
+                            placeholder="23456-000"
+                            disabled
+                    />
+                </div>
+            </div>
+
+            <div class="inputForm">
+                <label for="description">Descrição</label>
+                <textarea id="description" placeholder="Empresa referência no desenvolvimento de sistemas para gestão hospitalar" disabled></textarea>
+            </div>
+            <button>Salvar perfil</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Linketinder - Conectando talentos e oportunidades</p>
+</footer>
+</body>
+</html>
