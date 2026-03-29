@@ -34,6 +34,71 @@
         </div>
         <button id="novaVaga">Nova vaga</button>
     </div>
+
+    <div class="modalNovaVaga">
+        <div class="modalContent">
+            <div class="titleForm">
+                <h3>Criar nova vaga</h3>
+                <button id="btnClose">X</button>
+            </div>
+            <form action="">
+                <div class="inputForm">
+                    <label for="title">Título *</label>
+                    <input
+                            type="text"
+                            id="title"
+                            placeholder="Ex: Desenvolvedor(a) Backend"
+                            required
+                    />
+                </div>
+
+                <div class="inputForm">
+                    <label for="description">Descrição</label>
+                    <textarea id="description" placeholder="Descreva a vaga..."></textarea>
+                </div>
+
+                <div class="inputForm">
+                    <label for="location">Localização *</label>
+                    <input
+                            type="text"
+                            id="location"
+                            placeholder="Ex: Rio de Janeiro, RJ"
+                            required
+                    />
+                </div>
+
+                <div class="inputForm">
+                    <label for="skills">Competências *</label>
+                    <div class="inputSkills">
+                        <input
+                                type="text"
+                                id="skills"
+                                placeholder="Ex: Java"
+                                required
+                        />
+                        <button>Adicionar</button>
+                    </div>
+                    <div class="tags">
+                        <div class="tag">
+                            <span>Python</span>
+                            <button>X</button>
+                        </div>
+                        <div class="tag">
+                            <span>Java</span>
+                            <button>X</button>
+                        </div>
+                        <div class="tag">
+                            <span>Angular</span>
+                            <button>X</button>
+                        </div>
+                    </div>
+                </div>
+
+                <button>Salvar perfil</button>
+            </form>
+        </div>
+    </div>
+
     <div class="cardsVagas">
         <div class="cardVaga">
             <div class="title">
