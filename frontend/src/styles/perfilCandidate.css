@@ -9,9 +9,9 @@ section.formLogin {
 section.formLogin .cardForm{
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
     background: hsl(210 20% 98%);
-    padding: 3rem;
+    padding: 2rem 3rem;
     box-shadow: 0 0 4px 1px rgba(0,0,0,0.12);
     border-radius: 1rem;
     width: 40%;
@@ -42,7 +42,7 @@ section.formLogin .cardForm form .w50{
 section.formLogin .cardForm form .inputForm{
     display: flex;
     flex-direction: column;
-    gap: .6rem;
+    gap: .8rem;
     width: 100%;
 }
 
@@ -51,7 +51,7 @@ section.formLogin .cardForm form .inputForm > label{
     font-weight: 400;
 }
 
-section.formLogin .cardForm form .inputForm > input{
+section.formLogin .cardForm form .inputForm input{
     border-radius: .8rem;
     border: 1px solid #c2c2c2;
     padding: .8rem;
@@ -69,6 +69,60 @@ section.formLogin .cardForm form .inputForm > textarea{
     cursor: not-allowed;
 }
 
+section.formLogin .cardForm form .inputForm .inputSkills{
+    display: flex;
+    gap: .8rem;
+    width: 100%;
+}
+
+section.formLogin .cardForm form .inputForm .inputSkills > input{
+    cursor: text;
+    width: 85%;
+}
+
+section.formLogin .cardForm form .inputForm .inputSkills > button{
+    border-radius: .8rem;
+    border: none;
+    padding: .8rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    width: 15%;
+    background: #e1e1e1;
+    box-shadow: 0 0 2px 1px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+section.formLogin .cardForm form .inputForm .inputSkills > button:hover{
+    filter: brightness(0.9);
+}
+
+section.formLogin .cardForm form .inputForm .tags{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+section.formLogin .cardForm form .inputForm .tags .tag{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e5e5e7;
+    border-radius: 1rem;
+    padding: .4rem 1.4rem;
+    gap: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+section.formLogin .cardForm form .inputForm .tags .tag > button {
+    border: none;
+    background: transparent;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: red;
+    cursor: pointer;
+}
+
 section.formLogin .cardForm form > button{
     border: none;
     border-radius: .8rem;
@@ -81,6 +135,6 @@ section.formLogin .cardForm form > button{
     margin-top: 1rem;
 }
 
-section.formLogin .cardForm form button:hover{
+section.formLogin .cardForm form > button:hover{
     filter: brightness(1.2);
 }

@@ -95,9 +95,46 @@
             </div>
 
             <div class="inputForm">
+                <label for="formacao">Formação</label>
+                <input
+                        type="text"
+                        id="formacao"
+                        placeholder="Análise e desenvolvimento de sistemas - UNINTER"
+                        disabled
+                />
+            </div>
+
+            <div class="inputForm">
                 <label for="description">Descrição</label>
                 <textarea id="description" placeholder="Desenvolvedor fullstack apaixonado por tecnologia." disabled></textarea>
             </div>
+
+            <div class="inputForm">
+                <label for="skills">Competências</label>
+                <div class="inputSkills">
+                    <input
+                            type="text"
+                            id="skills"
+                            placeholder="Ex: Java"
+                    />
+                    <button>Adicionar</button>
+                </div>
+                <div class="tags">
+                    <div class="tag">
+                        <span>Python</span>
+                        <button>X</button>
+                    </div>
+                    <div class="tag">
+                        <span>Java</span>
+                        <button>X</button>
+                    </div>
+                    <div class="tag">
+                        <span>Angular</span>
+                        <button>X</button>
+                    </div>
+                </div>
+            </div>
+
             <button>Salvar perfil</button>
         </form>
     </div>
