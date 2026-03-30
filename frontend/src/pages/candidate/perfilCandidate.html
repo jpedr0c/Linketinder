@@ -25,123 +25,13 @@
     </div>
 </nav>
 
-<section class="formLogin">
-    <div class="cardForm">
-        <div class="titleForm">
-            <h3>Meu Perfil</h3>
-        </div>
-        <form action="">
-            <div class="w50">
-                <div class="inputForm">
-                    <label for="name">Nome</label>
-                    <input
-                            type="text"
-                            id="name"
-                            placeholder="João Pedro"
-                            disabled
-                    />
-                </div>
-                <div class="inputForm">
-                    <label for="email">Email</label>
-                    <input
-                            type="text"
-                            id="email"
-                            placeholder="joaopedro@email.com"
-                            disabled
-                    />
-                </div>
-            </div>
-
-            <div class="w50">
-                <div class="inputForm">
-                    <label for="cpf">CPF</label>
-                    <input
-                            type="number"
-                            id="cpf"
-                            placeholder="111.123.456-00"
-                            disabled
-                    />
-                </div>
-                <div class="inputForm">
-                    <label for="idade">Idade</label>
-                    <input
-                            type="number"
-                            id="idade"
-                            placeholder="24"
-                            disabled
-                    />
-                </div>
-            </div>
-
-            <div class="w50">
-                <div class="inputForm">
-                    <label for="estado">Estado</label>
-                    <input
-                            type="text"
-                            id="estado"
-                            placeholder="RJ"
-                            disabled
-                    />
-                </div>
-                <div class="inputForm">
-                    <label for="cep">CEP</label>
-                    <input
-                            type="number"
-                            id="cep"
-                            placeholder="23456-000"
-                            disabled
-                    />
-                </div>
-            </div>
-
-            <div class="inputForm">
-                <label for="formacao">Formação</label>
-                <input
-                        type="text"
-                        id="formacao"
-                        placeholder="Análise e desenvolvimento de sistemas - UNINTER"
-                        disabled
-                />
-            </div>
-
-            <div class="inputForm">
-                <label for="description">Descrição</label>
-                <textarea id="description" placeholder="Desenvolvedor fullstack apaixonado por tecnologia." disabled></textarea>
-            </div>
-
-            <div class="inputForm">
-                <label for="skills">Competências</label>
-                <div class="inputSkills">
-                    <input
-                            type="text"
-                            id="skills"
-                            placeholder="Ex: Java"
-                    />
-                    <button>Adicionar</button>
-                </div>
-                <div class="tags">
-                    <div class="tag">
-                        <span>Python</span>
-                        <button>X</button>
-                    </div>
-                    <div class="tag">
-                        <span>Java</span>
-                        <button>X</button>
-                    </div>
-                    <div class="tag">
-                        <span>Angular</span>
-                        <button>X</button>
-                    </div>
-                </div>
-            </div>
-
-            <button>Salvar perfil</button>
-        </form>
-    </div>
-</section>
+<section class="formLogin" id="candidateProfile"></section>
 
 <footer>
     <p>© 2026 Linketinder - Conectando talentos e oportunidades</p>
 </footer>
+
+<script type="module" src="../../ts/dist/main.js"></script>
+
 </body>
 </html>
