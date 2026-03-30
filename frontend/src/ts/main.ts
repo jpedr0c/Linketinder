@@ -17,15 +17,27 @@ const profileCandidate = document.getElementById("candidateProfile") as HTMLElem
 
 let skills: string[] = [];
 
+const PATTERNS = {
+    name: /^[A-Za-zÀ-ÿ\s]{3,}$/,
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    cpf: /^\d{3}\.\d{3}\.\d{3}-\d{2}$/,
+    cnpj: /^\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}$/,
+    phone: /^\(\d{2}\)\s\d{4,5}-\d{4}$/,
+    cep: /^\d{5}-\d{3}$/,
+    linkedin: /^https:\/\/(www\.)?linkedin\.com\/.*$/,
+};
+
 const candidateData = {
     name: "João Pedro Cardoso",
     email: "jocardos@email.com",
-    cnpj: "11.111.111/0001-11",
+    phone: "(21) 99324-0325",
+    cpf: "341.523.522-52",
     age: "24",
     state: "RJ",
     cep: "04000-000",
+    linkedin: "https://www.linkedin.com/in/jpedroc/",
     course: "Análise e desenvolvimento de sistemas",
-    description: "Empresa líder em soluções de software.",
+    description: "Desenvolvedor fullstack",
     skills: ["Java", "Angular", "Spring"]
 };
 
@@ -38,6 +50,92 @@ const companyData = {
     cep: "74070-040",
     description: "Empresa líder em soluções de software.",
 };
+
+function showError(input: HTMLElement | null, message: string) {
+    if (!input) return;
+
+    input.classList.add("error");
+
+    let errorSpan = input.parentElement?.querySelector(".error-message") as HTMLElement;
+
+    if (!errorSpan) {
+        errorSpan = document.createElement("span");
+        errorSpan.classList.add("error-message");
+        input.parentElement?.appendChild(errorSpan);
+    }
+
+    errorSpan.textContent = message;
+}
+
+function clearError(input: HTMLElement | null) {
+    if (!input) return;
+
+    input.classList.remove("error");
+
+    const errorSpan = input.parentElement?.querySelector(".error-message");
+    if (errorSpan) errorSpan.remove();
+}
+
+function validateCandidate(data: any) {
+    let valid = true;
+
+    if (!PATTERNS.name.test(data.name)) {
+        alert("Nome inválido");
+        valid = false;
+    }
+
+    if (!PATTERNS.email.test(data.email)) {
+        alert("Email inválido");
+        valid = false;
+    }
+
+    if (!PATTERNS.cpf.test(data.cpf)) {
+        alert("CPF inválido");
+        valid = false;
+    }
+
+    if (!PATTERNS.phone.test(data.phone)) {
+        alert("Telefone inválido");
+        valid = false;
+    }
+
+    if (!PATTERNS.linkedin.test(data.linkedin)) {
+        alert("Link do Linkedin inválido");
+        valid = false;
+    }
+
+    return valid;
+}
+
+validateCandidate(candidateData);
+
+function validateCompany(data: any) {
+    let valid = true;
+
+    if (!PATTERNS.name.test(data.name)) {
+        console.log("Nome inválido");
+        valid = false;
+    }
+
+    if (!PATTERNS.email.test(data.email)) {
+        console.log("Email inválido");
+        valid = false;
+    }
+
+    if (!PATTERNS.cnpj.test(data.cnpj)) {
+        console.log("CNPJ inválido");
+        valid = false;
+    }
+
+    if (!PATTERNS.cep.test(data.cep)) {
+        console.log("CEP inválido");
+        valid = false;
+    }
+
+    return valid;
+}
+
+validateCompany(companyData);
 
 function renderCompanyProfile() {
     if (!profileCompany) return;
@@ -111,7 +209,7 @@ function renderCandidateProfile() {
                     <input
                             type="text"
                             id="name"
-                            placeholder="João Pedro"
+                            value="${candidateData.name}"
                             disabled
                     />
                 </div>
@@ -120,7 +218,7 @@ function renderCandidateProfile() {
                     <input
                             type="text"
                             id="email"
-                            placeholder="joaopedro@email.com"
+                            value="${candidateData.email}"
                             disabled
                     />
                 </div>
@@ -130,18 +228,18 @@ function renderCandidateProfile() {
                 <div class="inputForm">
                     <label for="cpf">CPF</label>
                     <input
-                            type="number"
+                            type="text"
                             id="cpf"
-                            placeholder="111.123.456-00"
+                            value="${candidateData.cpf}"
                             disabled
                     />
                 </div>
                 <div class="inputForm">
                     <label for="idade">Idade</label>
                     <input
-                            type="number"
+                            type="text"
                             id="idade"
-                            placeholder="24"
+                            value="${candidateData.age}"
                             disabled
                     />
                 </div>
@@ -153,16 +251,16 @@ function renderCandidateProfile() {
                     <input
                             type="text"
                             id="estado"
-                            placeholder="RJ"
+                            value="${candidateData.state}"
                             disabled
                     />
                 </div>
                 <div class="inputForm">
                     <label for="cep">CEP</label>
                     <input
-                            type="number"
+                            type="text"
                             id="cep"
-                            placeholder="23456-000"
+                            value="${candidateData.cep}"
                             disabled
                     />
                 </div>
@@ -173,14 +271,14 @@ function renderCandidateProfile() {
                 <input
                         type="text"
                         id="formacao"
-                        placeholder="Análise e desenvolvimento de sistemas - UNINTER"
+                        value="${candidateData.course}"
                         disabled
                 />
             </div>
 
             <div class="inputForm">
                 <label for="description">Descrição</label>
-                <textarea id="description" placeholder="Desenvolvedor fullstack apaixonado por tecnologia." disabled></textarea>
+                <textarea id="description" disabled>${candidateData.description}</textarea>
             </div>
 
             <div class="inputForm">
@@ -285,22 +383,50 @@ function renderSkills() {
         tagsContainer.appendChild(tag);
     });
 }
-
 form?.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    let isValid = true;
+
+    // TITLE
+    if (!inputTitle?.value || inputTitle.value.length < 3) {
+        showError(inputTitle, "Título deve ter no mínimo 3 caracteres");
+        isValid = false;
+    } else {
+        clearError(inputTitle);
+    }
+
+    // LOCATION
+    if (!inputLocation?.value || inputLocation.value.length < 3) {
+        showError(inputLocation, "Localização inválida");
+        isValid = false;
+    } else {
+        clearError(inputLocation);
+    }
+
+    // SKILLS
+    if (skills.length === 0) {
+        showError(inputSkill, "Adicione pelo menos uma competência");
+        isValid = false;
+    } else {
+        clearError(inputSkill);
+    }
+
+    if (!isValid) return;
+
+    if (!inputTitle || !inputLocation) return;
+
     const newJob = {
         id: Date.now().toString(),
-        title: inputTitle?.value || "",
+        title: inputTitle.value,
         description: inputDescription?.value || "",
-        location: inputLocation?.value || "",
+        location: inputLocation.value,
         skills: skills,
     };
 
     const jobs = JSON.parse(localStorage.getItem("jobs") || "[]");
 
     jobs.push(newJob);
-
     localStorage.setItem("jobs", JSON.stringify(jobs));
 
     console.log("Vaga salva:", newJob);
