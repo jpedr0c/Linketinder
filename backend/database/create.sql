@@ -1,5 +1,5 @@
 CREATE TABLE candidato (
-    id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY ON DELETE CASCADE,
     nome VARCHAR(255) NOT NULL,
     sobrenome VARCHAR(255) NOT NULL,
     data_nascimento DATE,
@@ -18,7 +18,7 @@ CREATE TABLE candidato (
 );
 
 CREATE TABLE empresa (
-    id SERIAL PRIMARY KEY,
+    id SERIAL PRIMARY KEY ON DELETE CASCADE,
     nome VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     cnpj VARCHAR(30) UNIQUE,
@@ -49,13 +49,13 @@ CREATE TABLE competencia (
 );
 
 CREATE TABLE candidato_competencia (
-    candidato_id INTEGER NOT NULL REFERENCES candidato (id) ON DELETE CASCADE,
+    candidato_id INTEGER NOT NULL REFERENCES candidato (id),
     competencia_id INTEGER NOT NULL REFERENCES competencia (id),
     PRIMARY KEY (candidato_id, competencia_id)
 );
 
 CREATE TABLE vaga_competencia (
-    vaga_id INTEGER NOT NULL REFERENCES vaga (id) ON DELETE CASCADE,
+    vaga_id INTEGER NOT NULL REFERENCES vaga (id),
     competencia_id INTEGER NOT NULL REFERENCES competencia (id),
     PRIMARY KEY (vaga_id, competencia_id)
 );
