@@ -1,14 +1,12 @@
 package br.com.linketinder.model
 
-class Empresa extends PessoaBase{
+class Competencia {
     Integer id;
-    String cnpj;
+    String nome;
 
-    @Override
     void exibirInformacoes() {
-        super.exibirInformacoes();
         println("ID: $id" +
-                "\nCNPJ: $cnpj");
+                "\nNome: $nome");
         println("----------------");
     }
 }

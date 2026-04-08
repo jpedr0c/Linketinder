@@ -4,15 +4,40 @@ import br.com.linketinder.model.Candidato
 import br.com.linketinder.model.Empresa
 import br.com.linketinder.service.CandidatoService
 import br.com.linketinder.service.EmpresaService
+import br.com.linketinder.model.Competencia
+import br.com.linketinder.dao.CompetenciaDAO
+import br.com.linketinder.database.ConexaoDB
+import groovy.sql.Sql
 
 class Main {
     static List<Candidato> candidatos = [];
     static List<Empresa> empresas = [];
 
     static void main(String[] args) {
-        carregarDados();
-        exibirMenu();
+        def connection = ConexaoDB.getConnection()
+        def sql = new Sql(connection)
+        def competenciaDAO = new CompetenciaDAO(sql)
+//        Integer compId = competenciaDAO.inserir(new Competencia(nome: "Typescript"))
+//        println "ID inserido: $compId"
+
+        println "\nLista:"
+        competenciaDAO.listarTodos().each { println it.nome }
+
+        println "\nBuscar por ID:"
+        println(competenciaDAO.buscarPorId(7).nome)
+
+        competenciaDAO.update(new Competencia(id: 6, nome: "PostgreSQL"))
+        println "\nAtualizado: " + competenciaDAO.buscarPorId(6).nome
+
+        def result = competenciaDAO.buscarPorId(4).nome
+        competenciaDAO.delete(4)
+        println "\nCompetência $result deletado com sucesso"
     }
+
+//    static void main(String[] args) {
+////        carregarDados();
+////        exibirMenu();
+//}
 
     static void carregarDados() {
 

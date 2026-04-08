@@ -3,18 +3,20 @@ package br.com.linketinder.model
 abstract class PessoaBase implements Pessoa {
     String nome;
     String email;
-    String estado;
     String cep;
+    String cidade;
+    String estado;
+    String pais;
     String descricao;
-    List<String> competencias = [];
 
     @Override
     void exibirInformacoes() {
         println("Nome: $nome" +
                 "\nEmail: $email" +
-                "\nEstado: $estado" +
                 "\nCEP: $cep" +
-                "\nDescricão: $descricao" +
-                "\nCompetências: ${competencias.join(", ")}");
+                "\nCidade: $cidade" +
+                "\nEstado: $estado" +
+                "\nPaís: $pais" +
+                "\nDescricão: $descricao");
     }
 }
