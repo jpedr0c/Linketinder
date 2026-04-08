@@ -6,6 +6,7 @@ import br.com.linketinder.service.CandidatoService
 import br.com.linketinder.service.EmpresaService
 import br.com.linketinder.model.Competencia
 import br.com.linketinder.dao.CompetenciaDAO
+import br.com.linketinder.dao.EmpresaDAO
 import br.com.linketinder.database.ConexaoDB
 import groovy.sql.Sql
 
@@ -16,136 +17,63 @@ class Main {
     static void main(String[] args) {
         def connection = ConexaoDB.getConnection()
         def sql = new Sql(connection)
-        def competenciaDAO = new CompetenciaDAO(sql)
+//        exibirMenu();
+
+        def empresaDAO = new EmpresaDAO(sql)
+
+//        def competenciaDAO = new CompetenciaDAO(sql)
 //        Integer compId = competenciaDAO.inserir(new Competencia(nome: "Typescript"))
 //        println "ID inserido: $compId"
 
-        println "\nLista:"
-        competenciaDAO.listarTodos().each { println it.nome }
+//        println "\nLista:"
+//        competenciaDAO.listarTodos().each { println it.nome }
+//
+//        println "\nBuscar por ID:"
+//        println(competenciaDAO.buscarPorId(7).nome)
+//
+//        competenciaDAO.update(new Competencia(id: 6, nome: "PostgreSQL"))
+//        println "\nAtualizado: " + competenciaDAO.buscarPorId(6).nome
+//
+//        def result = competenciaDAO.buscarPorId(4).nome
+//        competenciaDAO.delete(4)
+//        println "\nCompetência $result deletado com sucesso"
 
-        println "\nBuscar por ID:"
-        println(competenciaDAO.buscarPorId(7).nome)
+//        def empId = empresaDAO.inserir(new Empresa(
+//                nome: "Testando",
+//                email: "empresa@test.com",
+//                cnpj: "99999999999999",
+//                pais: "Brasil",
+//                estado: "SP",
+//                cidade: "São Paulo",
+//                cep: "01000000",
+//                descricao: "Teste",
+//                senha: "654321"
+//        ))
+//
+//        println "Empresa ID: $empId"
+//
+//        println "\nLista:"
+//        empresaDAO.listarTodos().each { println it.nome }
+//
+//        println "\nBuscar por ID:"
+//        println empresaDAO.buscarPorId(2).nome
 
-        competenciaDAO.update(new Competencia(id: 6, nome: "PostgreSQL"))
-        println "\nAtualizado: " + competenciaDAO.buscarPorId(6).nome
+        empresaDAO.update(new Empresa(
+                id: 14,
+                nome: "Teste do Update",
+                email: "empresa@test.com",
+                cnpj: "00999999999999",
+                pais: "Brasil",
+                estado: "RJ",
+                cidade: "Rio de Janeiro",
+                cep: "01000000",
+                descricao: "Fazendo o teste para saber se o update_at irá atualizar",
+                senha: "123456"
+        ))
 
-        def result = competenciaDAO.buscarPorId(4).nome
-        competenciaDAO.delete(4)
-        println "\nCompetência $result deletado com sucesso"
-    }
-
-//    static void main(String[] args) {
-////        carregarDados();
-////        exibirMenu();
-//}
-
-    static void carregarDados() {
-
-        candidatos = [
-                new Candidato(
-                        nome: "João Pedro Cardoso",
-                        email: "joao@pedro.com",
-                        cpf: "111.424.643-45",
-                        idade: 24,
-                        estado: "RJ",
-                        cep: "20000-123",
-                        descricao: "Desenvolvedor Backend",
-                        competencias: ["Java", "Spring", "SQL"]
-                ),
-                new Candidato(
-                        nome: "Carlos Lima",
-                        email: "carlos@email.com",
-                        cpf: "222.222.222-22",
-                        idade: 30,
-                        estado: "SP",
-                        cep: "01000-000",
-                        descricao: "Frontend Developer",
-                        competencias: ["Angular", "TypeScript", "HTML"]
-                ),
-                new Candidato(
-                        nome: "Mariana Costa",
-                        email: "mariana@email.com",
-                        cpf: "333.333.333-33",
-                        idade: 28,
-                        estado: "MG",
-                        cep: "30000-000",
-                        descricao: "Fullstack",
-                        competencias: ["Java", "Angular", "Spring"]
-                ),
-                new Candidato(
-                        nome: "Pedro Rocha",
-                        email: "pedro@email.com",
-                        cpf: "444.444.444-44",
-                        idade: 35,
-                        estado: "RS",
-                        cep: "90000-000",
-                        descricao: "DevOps",
-                        competencias: ["Docker", "AWS", "Linux"]
-                ),
-                new Candidato(
-                        nome: "Julia Mendes",
-                        email: "julia@email.com",
-                        cpf: "555.555.555-55",
-                        idade: 23,
-                        estado: "BA",
-                        cep: "40000-000",
-                        descricao: "Estagiária",
-                        competencias: ["Python", "Git"]
-                )
-        ]
-
-        empresas = [
-                new Empresa(
-                        nome: "ZG Solucões",
-                        email: "timecomercial@zgsolucoes.com.br",
-                        cnpj: "14.488.144/0001-43",
-                        pais: "Brasil",
-                        estado: "GO",
-                        cep: "74070-040",
-                        descricao: "Empresa de tecnologia atuante na área de saúde",
-                        competencias: ["Groovy", "Spring"]
-                ),
-                new Empresa(
-                        nome: "Zero Glosa",
-                        email: "contato@zeroglosa.com",
-                        cnpj: "22.222.222/0001-22",
-                        pais: "Brasil",
-                        estado: "RJ",
-                        cep: "20000-000",
-                        descricao: "Soluções web",
-                        competencias: ["Angular", "Frontend"]
-                ),
-                new Empresa(
-                        nome: "ZG Transmissão",
-                        email: "contato@zgtransmissao.com",
-                        cnpj: "33.333.333/0001-33",
-                        pais: "Brasil",
-                        estado: "MG",
-                        cep: "30000-000",
-                        descricao: "Big Data",
-                        competencias: ["Python", "SQL"]
-                ),
-                new Empresa(
-                        nome: "ZG Conformidade",
-                        email: "contato@zgconformidade.com",
-                        cnpj: "44.444.444/0001-44",
-                        pais: "Brasil",
-                        estado: "RS",
-                        cep: "90000-000",
-                        descricao: "Infraestrutura",
-                        competencias: ["AWS", "Docker"]
-                ),
-                new Empresa(
-                        nome: "Acelera ZG",
-                        email: "contato@acelerazg.com",
-                        cnpj: "55.555.555/0001-55",
-                        pais: "Brasil",
-                        estado: "SP",
-                        cep: "04000-000",
-                        descricao: "Startup inovadora",
-                        competencias: ["Java", "Angular"]
-                )
-        ]
+//        def result = empresaDAO.buscarPorId(11).nome
+//        empresaDAO.delete(11)
+//        println "Empresa $result deletada"
     }
 
     static void exibirMenu() {
@@ -279,7 +207,6 @@ class Main {
                 estado: estado,
                 cep: cep,
                 descricao: descricao,
-                competencias: competencias
         )
 
         if (empresaService.adicionar(empresa)) {

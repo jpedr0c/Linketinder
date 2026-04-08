@@ -10,6 +10,10 @@ repositories {
     mavenCentral()
 }
 
+run {
+    standardInput = System.in
+}
+
 dependencies {
     implementation 'org.apache.groovy:groovy:4.0.23'
     implementation 'org.apache.groovy:groovy-sql:4.0.23'

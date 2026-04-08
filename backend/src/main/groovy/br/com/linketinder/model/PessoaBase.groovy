@@ -8,6 +8,7 @@ abstract class PessoaBase implements Pessoa {
     String estado;
     String pais;
     String descricao;
+    String senha
 
     @Override
     void exibirInformacoes() {
@@ -17,6 +18,7 @@ abstract class PessoaBase implements Pessoa {
                 "\nCidade: $cidade" +
                 "\nEstado: $estado" +
                 "\nPaís: $pais" +
-                "\nDescricão: $descricao");
+                "\nDescricão: $descricao" +
+                "\nSenha: $senha");
     }
 }
