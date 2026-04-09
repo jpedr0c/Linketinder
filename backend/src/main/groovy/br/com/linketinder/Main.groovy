@@ -7,8 +7,10 @@ import br.com.linketinder.service.EmpresaService
 import br.com.linketinder.model.Competencia
 import br.com.linketinder.dao.CompetenciaDAO
 import br.com.linketinder.dao.EmpresaDAO
+import br.com.linketinder.dao.CandidatoDAO
 import br.com.linketinder.database.ConexaoDB
 import groovy.sql.Sql
+import java.time.LocalDate
 
 class Main {
     static List<Candidato> candidatos = [];
@@ -18,8 +20,6 @@ class Main {
         def connection = ConexaoDB.getConnection()
         def sql = new Sql(connection)
 //        exibirMenu();
-
-        def empresaDAO = new EmpresaDAO(sql)
 
 //        def competenciaDAO = new CompetenciaDAO(sql)
 //        Integer compId = competenciaDAO.inserir(new Competencia(nome: "Typescript"))
@@ -37,6 +37,9 @@ class Main {
 //        def result = competenciaDAO.buscarPorId(4).nome
 //        competenciaDAO.delete(4)
 //        println "\nCompetência $result deletado com sucesso"
+
+
+//        def empresaDAO = new EmpresaDAO(sql)
 
 //        def empId = empresaDAO.inserir(new Empresa(
 //                nome: "Testando",
@@ -58,22 +61,67 @@ class Main {
 //        println "\nBuscar por ID:"
 //        println empresaDAO.buscarPorId(2).nome
 
-        empresaDAO.update(new Empresa(
-                id: 14,
-                nome: "Teste do Update",
-                email: "empresa@test.com",
-                cnpj: "00999999999999",
-                pais: "Brasil",
-                estado: "RJ",
-                cidade: "Rio de Janeiro",
-                cep: "01000000",
-                descricao: "Fazendo o teste para saber se o update_at irá atualizar",
-                senha: "123456"
-        ))
+//        empresaDAO.update(new Empresa(
+//                id: 14,
+//                nome: "Teste do Update",
+//                email: "empresa@test.com",
+//                cnpj: "00999999999999",
+//                pais: "Brasil",
+//                estado: "RJ",
+//                cidade: "Rio de Janeiro",
+//                cep: "01000000",
+//                descricao: "Fazendo o teste para saber se o update_at irá atualizar",
+//                senha: "123456"
+//        ))
 
 //        def result = empresaDAO.buscarPorId(11).nome
 //        empresaDAO.delete(11)
 //        println "Empresa $result deletada"
+
+//        def candidatoDAO = new CandidatoDAO(sql)
+
+//        candidatoDAO.inserir(new Candidato(
+//                nome: "João",
+//                sobrenome: "Teste",
+//                dataNascimento: LocalDate.parse("1995-05-10"),
+//                email: "joao.teste@email.com",
+//                telefone: "21999999999",
+//                cpf: "12345678900",
+//                pais: "Brasil",
+//                estado: "RJ",
+//                cidade: "Rio de Janeiro",
+//                cep: "20000000",
+//                descricao: "Desenvolvedor backend",
+//                linkedin: "linkedin.com/in/joaoteste",
+//                senha: "123456"
+//        ))
+//
+//        println "\nLista:"
+//        candidatoDAO.listarTodos().each { println it.nome }
+//
+//        println "\nBuscar por ID:"
+//        println candidatoDAO.buscarPorId(4).nome
+
+//        candidatoDAO.update(new Candidato(
+//                id: 11,
+//                nome: "João Pedro",
+//                sobrenome: "Cardoso",
+//                dataNascimento: LocalDate.parse("2001-10-22"),
+//                email: "jpcardoso@email.com",
+//                telefone: "21888888888",
+//                cpf: "12345678900",
+//                pais: "Brasil",
+//                estado: "RJ",
+//                cidade: "Rio de Janeiro",
+//                cep: "01000000",
+//                descricao: "Dev Fullstack",
+//                linkedin: "linkedin.com/in/jpedroc",
+//                senha: "654321"
+//        ))
+//
+//        def result = candidatoDAO.buscarPorId(8).nome
+//        candidatoDAO.delete(8)
+//        println "Candidato $result deletada"
     }
 
     static void exibirMenu() {
