@@ -82,6 +82,7 @@ class CandidatoDAO {
     }
 
     boolean delete(Integer id) {
+        sql.executeUpdate('DELETE FROM candidato_competencia WHERE candidato_id = ?', [id])
         Integer isDeleted = sql.executeUpdate('DELETE FROM candidato WHERE id = ?', [id])
         return isDeleted > 0
     }

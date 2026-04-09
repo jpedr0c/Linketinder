@@ -2,12 +2,14 @@ package br.com.linketinder
 
 import br.com.linketinder.model.Candidato
 import br.com.linketinder.model.Empresa
+import br.com.linketinder.model.Competencia
+import br.com.linketinder.model.Vaga
 import br.com.linketinder.service.CandidatoService
 import br.com.linketinder.service.EmpresaService
-import br.com.linketinder.model.Competencia
 import br.com.linketinder.dao.CompetenciaDAO
 import br.com.linketinder.dao.EmpresaDAO
 import br.com.linketinder.dao.CandidatoDAO
+import br.com.linketinder.dao.VagaDAO
 import br.com.linketinder.database.ConexaoDB
 import groovy.sql.Sql
 import java.time.LocalDate
@@ -122,6 +124,36 @@ class Main {
 //        def result = candidatoDAO.buscarPorId(8).nome
 //        candidatoDAO.delete(8)
 //        println "Candidato $result deletada"
+
+        def vagaDAO = new VagaDAO(sql)
+
+//        vagaDAO.inserir(new Vaga(
+//                empresaId: 1,
+//                nome: "Desenvolvedor Backend",
+//                cidade: "São Paulo",
+//                estado: "SP",
+//                descricao: "Vaga para desenvolvedor Groovy"
+//        ))
+//
+//        println "\nLista:"
+//        vagaDAO.listarTodos().each { println "$it.id - $it.nome - $it.cidade" }
+//
+//        println "\nBuscar por ID:"
+//        println vagaDAO.buscarPorId(2).nome
+
+//        vagaDAO.update(new Vaga(
+//                id: 6,
+//                nome: "Desenvolvedor Backend Senior",
+//                cidade: "Rio de Janeiro",
+//                estado: "RJ",
+//                descricao: "Vaga atualizada"
+//        ))
+
+//        vagaDAO.adicionarCompetencia(6, 8)
+//        println "\nCompetência adicionada à vaga"
+//
+//        vagaDAO.delete(6)
+//        println "\nVaga deletada"
     }
 
     static void exibirMenu() {

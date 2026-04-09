@@ -2,7 +2,7 @@ package br.com.linketinder.model
 
 class Vaga {
     Integer id;
-    Empresa empresa;
+    Integer empresaId;
     String nome;
     String cidade;
     String estado;
@@ -11,7 +11,7 @@ class Vaga {
 
     void exibirInformacoes() {
         println("ID: $id" +
-                "\nEmpresa: $empresa.nome" +
+                "\nEmpresa: $empresaId.nome" +
                 "\nNome: $nome" +
                 "\nCidade: $cidade" +
                 "\nEstado: $estado" +
