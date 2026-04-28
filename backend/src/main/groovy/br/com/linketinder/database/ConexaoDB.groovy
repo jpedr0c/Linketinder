@@ -9,7 +9,6 @@ class ConexaoDB {
         String user = "admin"
         String password = "123456"
         Connection connection = DriverManager.getConnection(url, user, password)
-        connection.createStatement().execute("SET timezone = 'America/Sao_Paulo'")
         return connection
     }
 }

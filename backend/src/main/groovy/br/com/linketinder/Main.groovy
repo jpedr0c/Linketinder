@@ -6,154 +6,11 @@ import br.com.linketinder.model.Competencia
 import br.com.linketinder.model.Vaga
 import br.com.linketinder.service.CandidatoService
 import br.com.linketinder.service.EmpresaService
-import br.com.linketinder.dao.CompetenciaDAO
-import br.com.linketinder.dao.EmpresaDAO
-import br.com.linketinder.dao.CandidatoDAO
-import br.com.linketinder.dao.VagaDAO
-import br.com.linketinder.database.ConexaoDB
-import groovy.sql.Sql
 import java.time.LocalDate
 
 class Main {
-    static List<Candidato> candidatos = [];
-    static List<Empresa> empresas = [];
-
     static void main(String[] args) {
-        def connection = ConexaoDB.getConnection()
-        def sql = new Sql(connection)
-//        exibirMenu();
-
-//        def competenciaDAO = new CompetenciaDAO(sql)
-//        Integer compId = competenciaDAO.inserir(new Competencia(nome: "Typescript"))
-//        println "ID inserido: $compId"
-
-//        println "\nLista:"
-//        competenciaDAO.listarTodos().each { println it.nome }
-//
-//        println "\nBuscar por ID:"
-//        println(competenciaDAO.buscarPorId(7).nome)
-//
-//        competenciaDAO.update(new Competencia(id: 6, nome: "PostgreSQL"))
-//        println "\nAtualizado: " + competenciaDAO.buscarPorId(6).nome
-//
-//        def result = competenciaDAO.buscarPorId(4).nome
-//        competenciaDAO.delete(4)
-//        println "\nCompetência $result deletado com sucesso"
-
-
-//        def empresaDAO = new EmpresaDAO(sql)
-
-//        def empId = empresaDAO.inserir(new Empresa(
-//                nome: "Testando",
-//                email: "empresa@test.com",
-//                cnpj: "99999999999999",
-//                pais: "Brasil",
-//                estado: "SP",
-//                cidade: "São Paulo",
-//                cep: "01000000",
-//                descricao: "Teste",
-//                senha: "654321"
-//        ))
-//
-//        println "Empresa ID: $empId"
-//
-//        println "\nLista:"
-//        empresaDAO.listarTodos().each { println it.nome }
-//
-//        println "\nBuscar por ID:"
-//        println empresaDAO.buscarPorId(2).nome
-
-//        empresaDAO.update(new Empresa(
-//                id: 14,
-//                nome: "Teste do Update",
-//                email: "empresa@test.com",
-//                cnpj: "00999999999999",
-//                pais: "Brasil",
-//                estado: "RJ",
-//                cidade: "Rio de Janeiro",
-//                cep: "01000000",
-//                descricao: "Fazendo o teste para saber se o update_at irá atualizar",
-//                senha: "123456"
-//        ))
-
-//        def result = empresaDAO.buscarPorId(11).nome
-//        empresaDAO.delete(11)
-//        println "Empresa $result deletada"
-
-//        def candidatoDAO = new CandidatoDAO(sql)
-
-//        candidatoDAO.inserir(new Candidato(
-//                nome: "João",
-//                sobrenome: "Teste",
-//                dataNascimento: LocalDate.parse("1995-05-10"),
-//                email: "joao.teste@email.com",
-//                telefone: "21999999999",
-//                cpf: "12345678900",
-//                pais: "Brasil",
-//                estado: "RJ",
-//                cidade: "Rio de Janeiro",
-//                cep: "20000000",
-//                descricao: "Desenvolvedor backend",
-//                linkedin: "linkedin.com/in/joaoteste",
-//                senha: "123456"
-//        ))
-//
-//        println "\nLista:"
-//        candidatoDAO.listarTodos().each { println it.nome }
-//
-//        println "\nBuscar por ID:"
-//        println candidatoDAO.buscarPorId(4).nome
-
-//        candidatoDAO.update(new Candidato(
-//                id: 11,
-//                nome: "João Pedro",
-//                sobrenome: "Cardoso",
-//                dataNascimento: LocalDate.parse("2001-10-22"),
-//                email: "jpcardoso@email.com",
-//                telefone: "21888888888",
-//                cpf: "12345678900",
-//                pais: "Brasil",
-//                estado: "RJ",
-//                cidade: "Rio de Janeiro",
-//                cep: "01000000",
-//                descricao: "Dev Fullstack",
-//                linkedin: "linkedin.com/in/jpedroc",
-//                senha: "654321"
-//        ))
-//
-//        def result = candidatoDAO.buscarPorId(8).nome
-//        candidatoDAO.delete(8)
-//        println "Candidato $result deletada"
-
-        def vagaDAO = new VagaDAO(sql)
-
-//        vagaDAO.inserir(new Vaga(
-//                empresaId: 1,
-//                nome: "Desenvolvedor Backend",
-//                cidade: "São Paulo",
-//                estado: "SP",
-//                descricao: "Vaga para desenvolvedor Groovy"
-//        ))
-//
-//        println "\nLista:"
-//        vagaDAO.listarTodos().each { println "$it.id - $it.nome - $it.cidade" }
-//
-//        println "\nBuscar por ID:"
-//        println vagaDAO.buscarPorId(2).nome
-
-//        vagaDAO.update(new Vaga(
-//                id: 6,
-//                nome: "Desenvolvedor Backend Senior",
-//                cidade: "Rio de Janeiro",
-//                estado: "RJ",
-//                descricao: "Vaga atualizada"
-//        ))
-
-//        vagaDAO.adicionarCompetencia(6, 8)
-//        println "\nCompetência adicionada à vaga"
-//
-//        vagaDAO.delete(6)
-//        println "\nVaga deletada"
+        exibirMenu();
     }
 
     static void exibirMenu() {
@@ -166,9 +23,21 @@ class Main {
         ║                       MENU PRINCIPAL                       ║
         ╠════════════════════════════════════════════════════════════╣
         ║  1 - 📝 Cadastrar Novo Candidato                           ║
-        ║  2 - 🏢 Cadastrar Nova Empresa                             ║
-        ║  3 - 👥 Listar Candidatos                                  ║
-        ║  4 - 🏭 Listar Empresas                                    ║
+        ║  2 - 📝 Cadastrar Nova Empresa                             ║
+        ║  3 - 📝 Cadastrar Nova Competência                         ║
+        ║  4 - 📝 Cadastrar Nova Vaga                                ║
+        ║  5 - 👥 Listar Candidatos                                  ║
+        ║  6 - 👥 Listar Empresas                                    ║
+        ║  7 - 👥 Listar Competências                                ║
+        ║  8 - 👥 Listar Vagas                                       ║
+        ║  9 - 🏭 Atualizar Candidato                                ║
+        ║  10 - 🏭 Atualizar Empresa                                 ║
+        ║  11 - 🏭 Atualizar Competência                             ║
+        ║  12 - 🏭 Atualizar Vaga                                    ║
+        ║  13 - 🏭 Deletar Candidato                                 ║
+        ║  14 - 🏭 Deletar Empresa                                   ║
+        ║  15 - 🏭 Deletar Competência                               ║
+        ║  16 - 🏭 Deletar Vaga                                      ║
         ║  0 - 🚪 Sair                                               ║
         ╚════════════════════════════════════════════════════════════╝
         """.stripIndent()
@@ -178,16 +47,30 @@ class Main {
 
         switch (option) {
             case "1":
-                adicionarCandidato(scanner, candidatoService);
+                candidatoService.inserir()
                 break;
-            case "2":
-                adicionarEmpresa(scanner, empresaService);
+//            case "2":
+//                empresaService.inserir()
+//                break;
+            case "5":
+                List<Candidato> candidatos = candidatoService.listarTodos()
+                println("\n======= Candidatos ========")
+                candidatos.each {it.exibirInformacoes()}
                 break;
-            case "3":
-                listarCandidatos();
+            case "6":
+                List<Empresa> empresas = empresaService.listarTodos()
+                println("\n======= Empresas ========")
+                empresas.each {it.exibirInformacoes()}
                 break;
-            case "4":
-                listarEmpresas();
+            case "7":
+                List<Empresa> empresas = empresaService.listarTodos()
+                println("\n======= Competências ========")
+                empresas.each {it.exibirInformacoes()}
+                break;
+            case "8":
+                List<Empresa> empresas = empresaService.listarTodos()
+                println("\n======= Vagas ========")
+                empresas.each {it.exibirInformacoes()}
                 break;
             case "0":
                 System.out.println("Encerrando o programa...");
@@ -198,55 +81,6 @@ class Main {
         }
 
         exibirMenu();
-    }
-
-    static void adicionarCandidato(Scanner scanner, CandidatoService candidatoService) {
-        println "\n╔════════════════════════════════════════════════════════════╗"
-        println "║            📝 CADASTRO DE NOVO CANDIDATO 📝               ║"
-        println "╚════════════════════════════════════════════════════════════╝\n"
-
-        print "Nome: "
-        String nome = scanner.nextLine()
-
-        print "Email: "
-        String email = scanner.nextLine()
-
-        print "CPF (formato: 123.456.789-00): "
-        String cpf = scanner.nextLine()
-
-        print "Idade: "
-        Integer idade = scanner.nextInt()
-        scanner.nextLine()
-
-        print "Estado (UF): "
-        String estado = scanner.nextLine()
-
-        print "CEP (formato: 12345-678): "
-        String cep = scanner.nextLine()
-
-        print "Descrição pessoal: "
-        String descricao = scanner.nextLine()
-
-        print "Competências (separadas por vírgula): "
-        String competenciasStr = scanner.nextLine()
-        List<String> competencias = competenciasStr.split(",").collect { it.trim() }
-
-        def candidato = new Candidato(
-                nome: nome,
-                email: email,
-                cpf: cpf,
-                idade: idade,
-                estado: estado,
-                cep: cep,
-                descricao: descricao,
-                competencias: competencias
-        )
-
-        if (candidatoService.adicionar(candidato)) {
-            println "\n✅ Candidato adicionado com sucesso!"
-        } else {
-            println "\n❌ Erro ao adicionar candidato. Verifique os dados informados."
-        }
     }
 
     static void adicionarEmpresa(Scanner scanner, EmpresaService empresaService) {
@@ -294,23 +128,5 @@ class Main {
         } else {
             println "\n❌ Erro ao adicionar empresa. Verifique os dados informados."
         }
-    }
-
-    static void listarCandidatos() {
-        if (candidatos.isEmpty()) {
-            println("Nenhum candidato cadastrado!");
-            return;
-        }
-        println("======= Candidatos ========")
-        candidatos.each {it.exibirInformacoes()}
-    }
-
-    static void listarEmpresas() {
-        if (empresas.isEmpty()) {
-            println("Nenhuma empresa cadastrada!");
-            return;
-        }
-        println("======= Empresas ========")
-        empresas.each {it.exibirInformacoes()}
     }
 }

@@ -9,7 +9,6 @@ class Candidato extends PessoaBase{
     String telefone;
     String cpf;
     String linkedin;
-    Integer idade;
     List<Competencia> competencias = [];
 
     @Override
@@ -21,7 +20,6 @@ class Candidato extends PessoaBase{
                 "\nTelefone: $telefone" +
                 "\nCPF: $cpf" +
                 "\nLinkedin: $linkedin" +
-                "\nIdade: $idade" +
                 "\nCompetências: ${competencias.join(", ")}");
         println("----------------");
     }

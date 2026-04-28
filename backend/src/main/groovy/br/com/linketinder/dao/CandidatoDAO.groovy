@@ -1,7 +1,6 @@
 package br.com.linketinder.dao
 
 import groovy.sql.Sql
-import java.time.LocalDate
 import groovy.sql.GroovyRowResult
 import br.com.linketinder.model.Candidato
 

@@ -1,17 +1,26 @@
 package br.com.linketinder.service
 
 import br.com.linketinder.model.Empresa
+import br.com.linketinder.dao.EmpresaDAO
+import br.com.linketinder.database.ConexaoDB
+import groovy.sql.Sql
+import java.sql.Connection
 
 class EmpresaService {
 
-    private List<Empresa> empresas = [];
+    private EmpresaDAO empresaDAO
 
-    boolean adicionar(Empresa empresa) {
-        empresas.add(empresa);
-        return true;
+    EmpresaService() {
+        Connection connection = ConexaoDB.getConnection()
+        Sql sql = new Sql(connection)
+        this.empresaDAO = new EmpresaDAO(sql)
     }
 
-    List<Empresa> listar() {
-        return new ArrayList<>(empresas);
+    boolean adicionar(Empresa empresa) {
+        return empresaDAO.inserir(empresa)
+    }
+
+    List<Empresa> listarTodos() {
+        return empresaDAO.listarTodos()
     }
 }
