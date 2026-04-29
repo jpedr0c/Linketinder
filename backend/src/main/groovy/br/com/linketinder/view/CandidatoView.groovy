@@ -1,6 +1,8 @@
 package br.com.linketinder.view
 
 import br.com.linketinder.model.Candidato
+import br.com.linketinder.model.Empresa
+
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeParseException
@@ -55,6 +57,11 @@ class CandidatoView {
     static void exibirCandidato(Candidato candidato) {
         println "\n======= Candidato ========"
         candidato.exibirInformacoes()
+    }
+
+    static void exibirTodosCandidatos(List<Candidato> candidatos) {
+        println "\n======= Candidatos ========"
+        candidatos.each { Candidato e -> e.exibirInformacoes() }
     }
 
     static void exibirCandidatoNaoEncontrado(Integer id) {

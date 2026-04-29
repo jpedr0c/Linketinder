@@ -42,12 +42,12 @@ class CandidatoService {
         }
     }
 
-    List<Candidato> listarTodos() {
+    void listarTodos() {
         try {
-            return candidatoDAO.listarTodos()
+            List<Candidato> candidatos = candidatoDAO.listarTodos()
+            candidatoView.exibirTodosCandidatos(candidatos)
         } catch (SQLException e) {
             logger.severe("Erro de banco de dados ao listar candidatos: ${e.printStackTrace()}")
-            return []
         }
     }
 
@@ -62,10 +62,10 @@ class CandidatoService {
                 candidatoView.exibirCandidatoNaoEncontrado(id)
             }
         } catch (IllegalArgumentException e) {
-            logger.warning("ID inválido informado pelo usuário: ${e.message}")
+            logger.warning("ID inválido informado pelo usuário: ${e.printStackTrace()}")
             candidatoView.exibirErroCadastro()
         } catch (SQLException e) {
-            logger.severe("Erro de banco de dados ao buscar candidato: ${e.message}")
+            logger.severe("Erro de banco de dados ao buscar candidato: ${e.printStackTrace()}")
             candidatoView.exibirErroCadastro()
         }
     }
@@ -85,10 +85,10 @@ class CandidatoService {
             candidatoDAO.update(candidatoAtualizado)
             candidatoView.exibirSucessoAtualizacao()
         } catch (IllegalArgumentException e) {
-            logger.warning("Dado inválido informado pelo usuário: ${e.message}")
+            logger.warning("Dado inválido informado pelo usuário: ${e.printStackTrace()}")
             candidatoView.exibirErroCadastro()
         } catch (SQLException e) {
-            logger.severe("Erro de banco de dados ao atualizar candidato: ${e.message}")
+            logger.severe("Erro de banco de dados ao atualizar candidato: ${e.printStackTrace()}")
             candidatoView.exibirErroCadastro()
         }
     }
@@ -110,10 +110,10 @@ class CandidatoService {
                 candidatoView.exibirErroCadastro()
             }
         } catch (IllegalArgumentException e) {
-            logger.warning("ID inválido informado pelo usuário: ${e.message}")
+            logger.warning("ID inválido informado pelo usuário: ${e.printStackTrace()}")
             candidatoView.exibirErroCadastro()
         } catch (SQLException e) {
-            logger.severe("Erro de banco de dados ao deletar candidato: ${e.message}")
+            logger.severe("Erro de banco de dados ao deletar candidato: ${e.printStackTrace()}")
             candidatoView.exibirErroCadastro()
         }
     }

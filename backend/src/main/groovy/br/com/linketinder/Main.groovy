@@ -49,18 +49,14 @@ class Main {
             case "1":
                 candidatoService.inserir()
                 break;
-//            case "2":
-//                empresaService.inserir()
-//                break;
+            case "2":
+                empresaService.inserir()
+                break;
             case "5":
-                List<Candidato> candidatos = candidatoService.listarTodos()
-                println("\n======= Candidatos ========")
-                candidatos.each {it.exibirInformacoes()}
+                candidatoService.listarTodos()
                 break;
             case "6":
-                List<Empresa> empresas = empresaService.listarTodos()
-                println("\n======= Empresas ========")
-                empresas.each {it.exibirInformacoes()}
+                empresaService.listarTodos()
                 break;
             case "7":
                 List<Empresa> empresas = empresaService.listarTodos()
@@ -72,8 +68,20 @@ class Main {
                 println("\n======= Vagas ========")
                 empresas.each {it.exibirInformacoes()}
                 break;
+            case "9":
+                candidatoService.atualizar()
+                break;
+            case "10":
+                empresaService.atualizar()
+                break;
+            case "13":
+                candidatoService.deletar()
+                break;
+            case "14":
+                empresaService.deletar()
+                break;
             case "0":
-                System.out.println("Encerrando o programa...");
+                println("Encerrando o programa...");
                 scanner.close();
                 return;
             default:
@@ -81,52 +89,5 @@ class Main {
         }
 
         exibirMenu();
-    }
-
-    static void adicionarEmpresa(Scanner scanner, EmpresaService empresaService) {
-        println "\n╔════════════════════════════════════════════════════════════╗"
-        println "║              🏢 CADASTRO DE NOVA EMPRESA 🏢               ║"
-        println "╚════════════════════════════════════════════════════════════╝\n"
-
-        print "Nome da empresa: "
-        String nome = scanner.nextLine()
-
-        print "Email corporativo: "
-        String email = scanner.nextLine()
-
-        print "CNPJ (formato: 12.345.678/0001-90): "
-        String cnpj = scanner.nextLine()
-
-        print "País: "
-        String pais = scanner.nextLine()
-
-        print "Estado (UF): "
-        String estado = scanner.nextLine()
-
-        print "CEP (formato: 12345-678): "
-        String cep = scanner.nextLine()
-
-        print "Descrição da empresa: "
-        String descricao = scanner.nextLine()
-
-        print "Competências desejadas (separadas por vírgula): "
-        String competenciasStr = scanner.nextLine()
-        List<String> competencias = competenciasStr.split(",").collect { it.trim() }
-
-        def empresa = new Empresa(
-                nome: nome,
-                email: email,
-                cnpj: cnpj,
-                pais: pais,
-                estado: estado,
-                cep: cep,
-                descricao: descricao,
-        )
-
-        if (empresaService.adicionar(empresa)) {
-            println "\n✅ Empresa adicionada com sucesso!"
-        } else {
-            println "\n❌ Erro ao adicionar empresa. Verifique os dados informados."
-        }
     }
 }
